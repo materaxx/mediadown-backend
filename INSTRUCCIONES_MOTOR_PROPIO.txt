@@ -1,0 +1,42 @@
+========================================================================
+    MOTOR DE CONVERSIÓN Y DESCARGA PROPIO - MEDIADOWN IN-HOUSE ENGINE
+========================================================================
+
+Este microservicio backend convierte tu web en un sistema 100% PROPIETARIO,
+sin depender de webs de terceros (como SaveFrom, Dirpy o Cobalt), sin
+publicidad y sin redirecciones molestas.
+
+------------------------------------------------------------------------
+¿CÓMO FUNCIONA?
+------------------------------------------------------------------------
+1. El usuario pega el enlace en tu web de Vercel.
+2. Tu web llama a tu propio servidor (/api/download?url=...&format=mp3).
+3. Tu motor (usando yt-dlp y ffmpeg interno) descarga y convierte el archivo.
+4. Tu motor devuelve el archivo directo al navegador del usuario como una
+   descarga automática limpia (.mp4 o .mp3).
+
+------------------------------------------------------------------------
+OPCIÓN 1: DESPLIEGUE GRATUITO EN RENDER.COM (2 MINUTOS)
+------------------------------------------------------------------------
+1. Ve a https://render.com y crea una cuenta gratis si no la tienes.
+2. Haz clic en "New +" -> "Web Service".
+3. Conecta tu repositorio de GitHub (o sube este proyecto).
+4. Render detectará automáticamente el archivo `Dockerfile`.
+5. En "Plan", selecciona "Free".
+6. Haz clic en "Create Web Service".
+7. Copia la URL que te dé Render (ejemplo: https://mediadown-api.onrender.com).
+8. En tu archivo `app.js` (en la primera línea), coloca:
+   const CUSTOM_BACKEND_URL = "https://mediadown-api.onrender.com";
+9. ¡Listo! Todo se procesa con tu propio enlace y marca.
+
+------------------------------------------------------------------------
+OPCIÓN 2: EJECUCIÓN LOCAL EN TU PC / SERVIDOR PRIVADO
+------------------------------------------------------------------------
+1. Abre una terminal en la carpeta `backend`:
+   cd backend
+2. Instala los requerimientos:
+   pip install -r requirements.txt
+3. Inicia el servidor:
+   python main.py
+4. El servidor estará escuchando en http://localhost:8000
+========================================================================

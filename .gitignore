@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.mp3
+*.mp4
+*.m4a
+*.webm
+test_*
+temp/
