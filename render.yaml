@@ -2,7 +2,7 @@ services:
   - type: web
     name: mediadown-engine
     env: docker
-    dockerfilePath: backend/Dockerfile
+    dockerfilePath: ./Dockerfile
     plan: free
     healthCheckPath: /
     autoDeploy: true
