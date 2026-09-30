@@ -38,7 +38,7 @@ def get_info(url: str = Query(..., description="Target video URL")):
         'quiet': True,
         'no_warnings': True,
         'skip_download': True,
-        'extractor_args': {'youtube': {'player_client': ['ios', 'android']}}
+        'extractor_args': {'youtube': {'player_client': ['visionos', 'android_vr', 'tv_embedded', 'ios']}}
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -67,7 +67,7 @@ def download_media(
         ydl_opts = {
             'format': 'ba/b',
             'outtmpl': output_template,
-            'extractor_args': {'youtube': {'player_client': ['ios', 'android']}},
+            'extractor_args': {'youtube': {'player_client': ['visionos', 'android_vr', 'tv_embedded', 'ios']}},
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
@@ -81,7 +81,7 @@ def download_media(
         ydl_opts = {
             'format': f'bestvideo[height<={quality}][ext=mp4]+bestaudio[ext=m4a]/best[height<={quality}][ext=mp4]/best',
             'outtmpl': output_template,
-            'extractor_args': {'youtube': {'player_client': ['ios', 'android']}},
+            'extractor_args': {'youtube': {'player_client': ['visionos', 'android_vr', 'tv_embedded', 'ios']}},
             'merge_output_format': 'mp4',
             'quiet': True,
             'no_warnings': True,
